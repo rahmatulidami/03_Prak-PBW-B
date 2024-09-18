@@ -105,4 +105,18 @@
     font-weight: 900;
     font-style: italic;
   }
+
+  #header {
+    background-color: #3e71a3;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
   
+  h1{
+    font-size: 2.5em;
+    font-weight: 700;
+    color: 0000a0;
+    margin: 0;
+  }

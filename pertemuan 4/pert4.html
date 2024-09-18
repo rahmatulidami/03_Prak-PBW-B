@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belajar Javascript dari Nol</title>
+        <script>
+            // ini adalah penulisan kode javascript
+            // di dalam tag <head>
+            // console.log untuk menampilkan teks ke console Javascript.
+            //console.debug(), console.info(), console.error(), console.dir()
+            console.log("Hello JS dari Head");
+
+            // membuat variabel
+            var name = "Praktikum PBW B";
+            var visitorCount = 50322;
+            var isActive = true;
+            var url = "http://www.modulnusantara.com";
+
+            // menampilkan variabel ke jendela dialog (alert)
+            // alert("Selamat datang di " + name);
+        
+            // menampilkan variabel ke dalam HTML
+            document.write("Nama Situs: " + name + "<br>");
+            document.write("Jumlah Pengunjung: " + visitorCount + "<br>");
+            document.write("Status Aktif: " + isActive + "<br>");
+            document.write("Alamat URL: " + url + "<br>");
+
+
+        </script>
+    </head>
+    <br>
+
+        <p>Belajar Javascript dari awal </p>
+
+        <button onclick="alert('Ok Terima kasih!')">Klik donk!</button>
+
+        <button onclick="sayHello()">Klik Aku!</button>
+
+        </br></br></br>
+
+        
+        <button id="deleteButton"> Hapus </button>
+
+        <!-- <div id="hasil-output"></div> -->
+
+        <!-- <textarea onkeyup="document.getElementById('counter').innerText = this.value.length" cols="30" rows="10"></textarea>
+        <p>Panjang: <span id="counter">0</span> karakter</p> -->
+
+        <!-- <a href="#" onclick="alert('Yey!')">Klik aku!</a> -->
+
+        <!-- java scrip pada url -->
+        <!--<!-- href="javascript:alert('Yey!')">Klik aku!</!--> 
+
+        <!-- js eksternal -->
+        <!-- <script src="kodeJs.js"></script> -->
+        
+        <script>
+            // ini adalah penulisan kode javascript
+            // di dalam tag <body>
+            // console.log("Hello JS dari body");
+
+            //camelCase
+            // membuat objek elemen
+            // var hasil = document.getElementById("hasil-output");
+
+            // menampilkan output ke elemen hasil
+            /* hasil.innerHTML = "<p>Aku suka Javascript</p>";
+
+            //alert("Selamat datang di tutorial belajar Javascript");
+
+            function sayHello(){
+                //alert("Hello!");
+            }*/
+
+            document.getElementById("deleteButton").addEventListener("click", function() {
+                let konfir = confirm(" Yakin mau hapus ?");
+                
+                if (konfir) {
+                    // Proses untuk delete di sini
+                    alert("Terhapus!");
+                    document.write("Data berhasil dihapus!");
+                } else {
+                    alert("Batal hapus!");
+                }
+            });
+        </script> 
+        
+    </body>
+</html>
