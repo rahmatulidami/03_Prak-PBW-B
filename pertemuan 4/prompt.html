@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belajar Javascript dari Nol</title>
+        <script>
+            console.log("Hello JS dari Head");
+
+            var name = "Praktikum PBW B";
+            var visitorCount = 50322;
+            var isActive = true;
+            var url = "http://www.modulnusantara.com";
+
+            document.write("Nama Situs: " + name + "<br>");
+            document.write("Jumlah Pengunjung: " + visitorCount + "<br>");
+            document.write("Status Aktif: " + isActive + "<br>");
+            document.write("Alamat URL: " + url + "<br>");
+        </script>
+    </head>
+
+    <body>
+        <p>Belajar Javascript dari awal</p>
+
+        <!-- Tombol untuk dialog prompt -->
+        <button onclick="askName()">Klik untuk Masukkan Nama</button>
+        
+        <p id="output"></p> <!-- Menampilkan hasil dari prompt -->
+
+        <script>
+            // Fungsi untuk menggunakan dialog prompt
+            function askName() {
+                // Memunculkan prompt dialog
+                var userName = prompt("Masukkan nama Anda:", "Nama default");
+
+                // Jika pengguna mengisi nama
+                if (userName != null && userName != "") {
+                    document.getElementById("output").innerHTML = "Halo, " + userName + "!";
+                } else {
+                    document.getElementById("output").innerHTML = "Anda belum memasukkan nama.";
+                }
+            }
+        </script>
+    </body>
+</html>
