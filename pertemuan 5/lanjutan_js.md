@@ -793,3 +793,219 @@ if(username == "petanikode" && password == "kopi"){
 Namun, ini bukanlah solusi terbaik.
 
 Karena kita tidak bisa mengecek, apakah user terdaftar atau tidak.
+
+## Perulangan pada Javascript
+```
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+document.write("<p>Tutorial Javascript!</p>");
+```
+Ada lima macam bentuk perulangan di Javascript. Secara umum, perulangan ini dibagi dua.
+
+Yaitu: <b> counted loop </b> dan <b> uncounted loop </b>.
+
+Perbedaannya:
+
+- Counted Loop merupakan perulangan yang jelas dan sudah tentu banyak perulangannya yaitu Perulangan For, Perulangan Foreach dan Perulangan Repeat.
+- Sedangkan Uncounted Loop, merupakan perulangan yang tidak jelas berapa kali ia harus mengulang yaitu Perulangan While dan Perulangan Do/While.
+
+## 1. Perulangan For di Javascript
+Perulangan for merupakan perulangan yang termasuk dalam counted loop, karena sudah jelas berapa kali ia akan mengulang.
+![Gambar perulangan](https://www.petanikode.com/img/c/loop/flowchart-for.webp)
+Bentuknya kodenya seperti ini:
+```
+for(let i = 0; i < 10; i++){
+    document.write("<p>Perulangan ke-" + i + "</p>")
+}
+```
+Yang perlu diperhatikan adalah kondisi yang ada di dalam kurung setelah kata for.
+
+Kondisi ini akan menentukan:
+- Hitungan akan dimulai dari 0 (i = 0);
+- Hitungannya sampai berapa? Sampai i < 10;
+- Lalu di setiap perulangan i akan bertambah +1 (i++).
+- Variabel i pada perulangan for berfungsi untuk menyimpan nilai hitungan.
+  Jadi setiap perulangan dilakukan nilai i akan selalu bertambah satu.
+  Karena kita menentukannya di bagian i++.
+
+### 2. Perulangan While di Javascript
+Perulangan while merupakan perulangan yang termasuk dalam perulangan uncounted loop.
+
+Perulangan while juga dapat menjadi perulangan yang counted loop dengan memberikan counter di dalamnya.
+
+contoh:
+```
+var ulangi = confirm("Apakah anda mau mengulang?");
+var counter = 0;
+
+while(ulangi){
+    var jawab = confirm("Apakah anda mau mengulang?")
+    counter++;
+    if(jawab == false){
+        ulangi = false;
+    }
+}
+
+document.write("Perulangan sudah dilakukan sebanyak "+ counter +" kali");
+```
+Bisa disederhanakan menjadi:
+```
+var ulangi = confirm("Apakah anda mau mengulang?");
+var counter = 0;
+
+while(ulangi){
+    counter++;
+    ulangi = confirm("Apakah anda mau mengulang?");
+}
+
+document.write("Perulangan sudah dilakukan sebanyak "+ counter +" kali");
+```
+
+### 3. Perulangan Do/While di Javascript
+Perulangan do/while sama seperti perulangan while.
+
+Perbedaannya:
+
+Perulangan do/while akan melakukan perulangan sebanyak 1 kali terlebih dahulu, lalu mengecek kondisi yang ada di dalam kurung while.
+
+Bentuknya seperti ini:
+```
+do {
+    // blok kode yang akan diulang
+} while (<kondisi>);
+```
+Jadi perbedaannya:
+
+Perulangan do/while akan mengecek kondisi di belakang (sesudah mengulang), sedangkan while akan mengecek kondisi di depan atau awal (sebelum mengulang).
+
+Mari kita coba lihat contohnya:
+```
+var ulangi = confirm("Apakah anda mau mengulang?");;
+var counter = 0;
+
+do {
+    counter++;
+    ulangi = confirm("Apakah anda mau mengulang?");
+} while(ulangi)
+
+document.write("Perulangan sudah dilakukan sebanyak "+ counter +" kali");
+```
+
+### 4. Perulangan Foreach di Javascript
+Perulangan foreach biasanya digunakan untuk mencetak item di dalam array.
+
+Perulangan ini termasuk dalam perulangan counted loop, karena jumlah perulangannya akan ditentukan oleh panjang dari array.
+
+Ada dua cara menggunakan perulangan foreach di Javascript:
+
+1. Menggunakan for dengan operator in;
+2. Menggunakan method forEach().
+Contoh:
+
+Berikut ini bentuk perulangan “foreach” tanpa menggunakan operator in:
+```
+var languages = ["Javascript", "HTML", "CSS", "Typescript"];
+
+for(i = 0; i < languages.length; i++){
+    document.write(i+". "+ languages[i] + "<br/>");
+}
+```
+Perulangan ini dapat dibuat lebih sederhana lagi dengan menggunakan operator in seperti ini:
+```
+var languages = ["Javascript", "HTML", "CSS", "Typescript"];
+
+for(i in languages){
+    document.write(i+". "+ languages[i] + "<br/>");
+}
+```
+
+Cara kedua membuat perulangan foreach ialah dengan menggunakan method forEach() dari array.
+
+Contoh:
+```
+// kita punya array seperti berikut
+var days = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"];
+
+// Kemudian kita tampilkan semua hari
+// dengan menggunakan method foreach
+days.forEach(function(day){
+    document.write("<p>" + day + "</p>");
+});
+```
+Method forEach() memiliki parameter berupa fungsi callback. Sebenarnya kita juga bisa menggunakan arrow function seperti ini:
+```
+// kita punya array seperti berikut
+var days = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"];
+
+// Kemudian kita tampilkan semua hari
+// dengan menggunakan method foreach
+days.forEach((day) => {
+    document.write("<p>" + day + "</p>");
+});
+```
+
+### 5. Perulangan dengan Method repeat()
+Perulangan dengan method atau fungsi repeat() termasuk dalam perulangan counted loop.
+
+Fungsi ini khusus digunakan untuk mengulang sebuah teks (string).
+
+Bisa dibilang:
+
+Ini merupakan singkat dari perulangan for.
+
+Contoh:
+
+Apabila kita menggunakan perulangan for:
+```
+for( let i = 0; i < 100; i++){
+    document.write("Ulangi kalimat ini!");
+}
+```
+Apabila kita menggunakan fungsi repeat():
+```
+document.write("Ulangi kalimat ini! ".repeat(100));
+```
+### 6. Perulangan Bersarang (Nested)
+Di dalam blok perulangan, kita juga dapat membuat perulangan.
+
+Ini disebut dengan nested loop atau perulangan bersarang atau perulangan di dalam perulangan.
+
+Mari kita coba lihat contohnya:
+```
+for(let i = 0; i < 10; i++){
+    for(let j = 0; j < 10; j++){
+        document.write("<p>Perulangan ke " + i + "," + j + "</p>");
+    }
+}
+```
+
+Pada perulangan tersebut, kita menggunakan dua perulangan for.
+
+Perulangan pertama menggunakan variabel i sebagai counter, sedangkan perulangan kedua menggunakan variabel j sebagai counter.
+
+Contoh lain:
+```
+var ulangi = confirm("apakah anda ingin mengulang?");
+var counter = 0;
+
+while (ulangi) {
+    counter++;
+    var bintang = "*".repeat(counter) + "<br>";
+    document.write(counter + ": " + bintang);
+    ulangi = confirm("apakah anda ingin mengulang?");
+}
+```
+Nanti, kita akan banyak menggunakan perulangan bersarang saat bekerja dengan array dua dimensi.
+
+Kita dapat membuat perulangan sebanyak mungkin di dalam perulangan yang lainnya.
+
+Namun, ini perlu diperhatikan:
+
+Semakin banyak perulangannya, maka komputer akan semakin lama memprosesnya.
