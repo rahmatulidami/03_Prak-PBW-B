@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+    <button onclick="askName()">Klik untuk Masukkan Nama</button>
+        
+    <p id="output"></p>
+
+    <script>
+      function askName() {
+        var userName = prompt("Masukkan nama Anda:", "Nama default");
+
+        if (userName != null && userName != "") {
+          document.getElementById("output").innerHTML = "Halo, " + userName + "!";
+        } else {
+          document.getElementById("output").innerHTML = "Anda belum memasukkan nama.";
+        }
+      }
+    </script>
+  </body>
+</html>
