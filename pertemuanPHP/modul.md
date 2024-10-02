@@ -422,3 +422,206 @@ echo "menikah: $menikah";
 Variabel ```$menikah``` akan ditampilkan kosong, karena nilai ```false``` akan dikonversi menjadi kosong dalam string.
 
 
+### Tipe Data Char dan String di PHP
+```Char``` adalah tipe data yang terdiri dari karakter. Penulisannya diapit dengan tanda petik satu.
+
+Contoh:
+
+```$huruf = 'E';```
+
+Lalu, ```String``` adalah tipe data yang terdiri dari kumpulan karakter. Penulisannya diapit dengan tanda petik ganda.
+
+Contoh:
+```
+$alamat = "Jl. Mawar, Jakarta";
+```
+
+### Tipe Data Integer di PHP
+```Integer``` adalah tipe data angka. Penulisannya tidak menggunakan tanda petik.
+
+Contoh:
+```
+$nilai = 98; // angka positif
+$poin = -31; // angka negatif
+```
+
+### Tipe Data Float di PHP
+```Float``` adalah tipe data bilangan pecahan. Sama seperti integer, tipe data ini ditulis tanpa tanda petik.
+
+Contoh:
+```
+$panjang = 233.12;
+$kapasistas = 13232.12;
+```
+Kada juga tipe data float ditulis dalam notasi seperti ini:
+```
+$jarak = 1.2E-5;
+```
+```E-5``` artinya eksponen dari ```10```.
+
+Contoh di atas akan sama dengan ```1.2 x 10-5```. Kalau kita jabarkan akan menjadi ```0.000012```.
+
+Agar format float tidak tercetak dalam notasi ```E```, kita bisa gunakan fungsi ```sprintf()```.
+
+Contoh:
+
+```
+echo sprintf('%f', $a);
+// batasi angka di belakang koma
+echo sprintf('%.3f', $a);
+```
+
+### Tipe data Boolean di PHP
+Tipe data boolean adalah tipe data yang hanya bernilai ```true``` dan ```false```.
+
+Penulisan true dan false tidak diapit dengan tanda petik.
+
+Contoh:
+```
+$isActive = false;
+$menikah = true;
+```
+### Tipe Data Array dalam PHP
+Array adalah tipe data yang berisi sekumpulan data.
+
+Contoh:
+```
+$minuman = array("Kopi", "Teh", "Jus Jeruk");
+$makanan = ["Nasi Goreng", "Soto", "Bubur"];
+```
+
+
+### Tipe Data Objek di PHP
+Tipe data objek adalah tipe data abstrak yang berisi data dan method.
+
+Contoh:
+```
+$user = new User();
+```
+Tipe data objek lebih sering disebut _instance_ dari sebuah class. Pada contoh di atas ```User()``` adalah class yang di-instance di variabel ```$user```.
+
+Setiap pembuatan _instance_ harus didahului dengan kata kunci ```new```.
+
+### Tipe Data NULL di PHP
+Tipe data ```NULL``` adalah tipe data yang menyatakan kosong.
+
+Artinya: Jika kita mengisi variabel dengan nilai NULL, maka variabel tersebut akan dianggap kosong atau tidak punya nilai.
+
+Contoh:
+```
+$nama = NULL;
+```
+
+## Konversi Tipe Data di PHP
+Apa yang akan terjadi bila kita melakukan pembagian dengan tipe data teks dengan angka seperti ini:
+```
+$a = 3;
+$b = "angka 10";
+
+$c = $b / $a;
+```
+Tentunya akan terjadi error saat kita ingin mencetak isi variabel $c.Karena itu, kita harus konversi dulu tipe datanya agar bisa dilakukan operasi yang lain.
+
+Pada PHP konversi tipe data bisa dilakukan dengan operator kali (*).
+
+Contoh:
+```
+<?php
+$foo = "1";  // mula-mual $foo dalam bentuk string (ASCII 49)
+$foo *= 2;   // $foo sekarang adalah integer (2)
+$foo = $foo * 1.3;  // $foo sekarang adalah float (2.6)
+$foo = 5 * "10 Little Piggies"; // $foo sekarang adalah integer (50)
+$foo = 5 * "10 Small Pigs";     // $foo sekarang adalah integer (50)
+?>
+```
+Selain cara ini, kita juga bisa melakukannya seperti di bahasa C:
+```
+<?php
+$a = "32";
+$a = (int) $a; // ubah nilai a menjadi integer
+$a = (float) $a; // ubah nilai a menjadi float
+$a = (string) $a; // ubah nilai a menjadi string
+?>
+
+```
+
+## Menghapus Variabel dari Memori
+Apabila ada variabel yang sudah tidak dibutuhkan lagi, maka kita bisa menghapusnya untuk meningkatkan performa program.
+
+Cara menghapus variabel di PHP dapat menggunakan fungsi unset().
+
+Contoh:
+```
+// membuat variabel $tmp
+$tmp = 2901;
+
+// menghapus variabel $tmp
+unset($tmp);
+
+// mencoba mengakses variabel $tmp
+echo $tmp;
+```
+Jika kita eksekusi kode di atas, maka akan terjadi error:
+
+```PHP Notice:  Undefined variable: tmp```
+Karena variabel $tmp sudah kita hapus.
+
+# Konstanta
+Konstanta seperti variabel. Ia bisa menyimpan nilai. Tapi tidak bisa diubah.
+
+Contoh:
+```
+const PHI = 3.14;
+const API_KEY = "182939812739812478u12ehj1h2u3123h12";
+```
+
+## Cara Membuat Konstanta dan Contohnya
+Pada PHP, kita dapat membuat konstanta dengan dua cara.
+
+1. Menggunakan fungsi ```define()```;
+2. Menggunakan kata kunci ```const```.
+
+Contoh:
+```
+<?php
+// membuat konstanta dengan fungsi define()
+define('DB_SERVER', 'localhost');
+define('DB_USER', 'petanikode');
+define('DB_PASS', 'R4Hasia');
+define('DB_NAME', 'belajar');
+
+// membuat konstanta dengan kata kunci const
+const API_KEY = "1234";
+?>
+```
+
+Nama konstanta diharuskan menggunakan huruf kapital agar mudah dibedakan dengan variabel. Meskipun di PHP menggunakan simbol dolar ($) untuk variabel, kita harus mengikuti aturan ini.
+
+Lalu, bagaimana cara mengambil nilai dari konstanta?
+
+Sama seperti variabel, kita tinggal tulis namanya.
+
+Contoh:
+```
+const SITE_NAME = "libusk.usk";
+echo "Nama situs: " . SITE_NAME;
+```
+
+Kita menggunakan titik (.) untuk menggabungkan dua buah string. Karena konstanta tidak menggunakan dolar, kita tidak bisa langsung menulisnya seperti ini:
+
+```echo "Nama situs: SITE_NAME";```
+Biar makin mantap, coba contoh program berikut:
+
+```
+<?php // file: belajar-konstanta.php
+// membuat konstanta
+define('VERSION', '1.0.0');
+
+const SITE_NAME  = "PERPUS USK";
+const BASE_URL    = "https://www.libusk.usk";
+
+// cetak nilai konstanta
+echo "Site name: " . SITE_NAME . "<br/>";
+echo "URL: " . BASE_URL . "<br/>";
+echo "Version: " . VERSION . "<br/>";
+```
